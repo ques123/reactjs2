@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
-import { StrictMode, useState } from 'react';
+import { StrictMode } from 'react';
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
+import WebApp from '@twa-dev/sdk';
 
 import { Root } from '@/components/Root.tsx';
 import { EnvUnsupported } from '@/components/EnvUnsupported.tsx';
@@ -19,15 +20,20 @@ try {
   // Configure all application dependencies.
   init(retrieveLaunchParams().startParam === 'debug' || import.meta.env.DEV);
 
-  const [username, setUsername] = useState('John Doe'); // Replace with actual user data
-  const [avatarUrl, setAvatarUrl] = useState('https://via.placeholder.com/40'); // Replace with actual user avatar
+  const App = () => {
+    const user = WebApp.initDataUnsafe.user;
+    const username = user?.username || user?.first_name || 'User';
+    const avatarUrl = user?.photo_url || 'https://via.placeholder.com/40';
 
-  root.render(
-    <StrictMode>
-      <UserProfile username={username} avatarUrl={avatarUrl} />
-      <Root/>
-    </StrictMode>,
-  );
+    return (
+      <StrictMode>
+        <UserProfile username={username} avatarUrl={avatarUrl} />
+        <Root/>
+      </StrictMode>
+    );
+  };
+
+  root.render(<App />);
 } catch (e) {
   root.render(<EnvUnsupported/>);
 }
