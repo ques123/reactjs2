@@ -7,14 +7,21 @@ interface UserProfileProps {
 
 export const UserProfile: FC<UserProfileProps> = ({ username, avatarUrl }) => {
   return (
-    <div className="flex items-center justify-end gap-3 px-4">
-      <span className="text-[var(--tg-theme-text-color)]">{username}</span>
-      <img 
-        src={avatarUrl} 
-        alt="Profile"
-        className="w-10 h-10 rounded-full object-cover"
-        style={{ boxShadow: '0 0 0 2px var(--tg-theme-button-color)' }}
-      />
+    <div className="flex items-center justify-end gap-2 p-2">
+      <span className="text-[var(--tg-theme-hint-color)] text-sm">{username}</span>
+      <div 
+        className="w-8 h-8 rounded-full overflow-hidden"
+        style={{ 
+          border: '2px solid var(--tg-theme-button-color)',
+          backgroundColor: 'var(--tg-theme-secondary-bg-color)'
+        }}
+      >
+        <img 
+          src={avatarUrl} 
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
   );
 }; 
