@@ -27,8 +27,10 @@ try {
 
     return (
       <StrictMode>
-        <UserProfile username={username} avatarUrl={avatarUrl} />
-        <Root/>
+        <div className="p-4 flex flex-col">
+          <UserProfile username={username} avatarUrl={avatarUrl} />
+          <Root/>
+        </div>
       </StrictMode>
     );
   };

@@ -7,13 +7,16 @@ interface UserProfileProps {
 
 export const UserProfile: React.FC<UserProfileProps> = ({ username, avatarUrl }) => {
   return (
-    <div className="absolute top-4 right-4 flex flex-col items-center">
+    <div className="flex items-center gap-3 p-4 bg-[#2C2C2E] rounded-lg mb-4">
       <img 
         src={avatarUrl} 
         alt={`${username}'s avatar`}
-        className="w-10 h-10 rounded-full"
+        className="w-12 h-12 rounded-full border-2 border-[#3478F6]"
       />
-      <span className="mt-1 text-sm font-medium">{username}</span>
+      <div className="flex flex-col">
+        <span className="text-[#3478F6] text-lg font-medium">{username}</span>
+        <span className="text-[#8E8E93] text-sm">Connected User</span>
+      </div>
     </div>
   );
 }; 
