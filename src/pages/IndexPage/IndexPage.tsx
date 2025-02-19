@@ -13,9 +13,7 @@ export const IndexPage: FC = () => {
 
   return (
     <Page back={false}>
-      <div className="mb-4">
-        <UserProfile username={username} avatarUrl={avatarUrl} />
-      </div>
+      <UserProfile username={username} avatarUrl={avatarUrl} />
       <List>
         <Section
           header="Features"
