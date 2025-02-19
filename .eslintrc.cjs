@@ -8,6 +8,11 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   overrides: [
     {
       env: {
