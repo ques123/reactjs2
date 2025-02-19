@@ -7,18 +7,16 @@ interface UserProfileProps {
 
 export const UserProfile: FC<UserProfileProps> = ({ username, avatarUrl }) => {
   return (
-    <div className="flex items-center justify-end gap-2 p-2">
-      <span className="text-[var(--tg-theme-hint-color)] text-sm">{username}</span>
+    <div className="absolute top-3 right-3">
       <div 
-        className="w-8 h-8 rounded-full overflow-hidden"
+        className="w-9 h-9 rounded-full overflow-hidden"
         style={{ 
-          border: '2px solid var(--tg-theme-button-color)',
-          backgroundColor: 'var(--tg-theme-secondary-bg-color)'
+          boxShadow: '0 0 0 2px var(--tg-theme-button-color)'
         }}
       >
         <img 
           src={avatarUrl} 
-          alt="Profile"
+          alt={username}
           className="w-full h-full object-cover"
         />
       </div>
