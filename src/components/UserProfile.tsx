@@ -7,11 +7,11 @@ interface UserProfileProps {
 
 export const UserProfile: FC<UserProfileProps> = ({ username, avatarUrl }) => {
   return (
-    <div className="absolute top-3 right-3">
+    <div className="absolute top-2 right-2">
       <div 
-        className="w-9 h-9 rounded-full overflow-hidden"
+        className="w-10 h-10 rounded-full overflow-hidden bg-[var(--tg-theme-secondary-bg-color)]"
         style={{ 
-          boxShadow: '0 0 0 2px var(--tg-theme-button-color)'
+          boxShadow: '0 0 0 1.5px var(--tg-theme-button-color)'
         }}
       >
         <img 
