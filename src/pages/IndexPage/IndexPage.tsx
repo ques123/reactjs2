@@ -28,6 +28,13 @@ export const IndexPage: FC = () => {
                 TON Connect
               </Cell>
             </Link>
+            <Link to="/user-activity">
+              <Cell
+                subtitle="View all users who have opened the app"
+              >
+                User Activity
+              </Cell>
+            </Link>
           </Section>
           <Section
             header="Application Launch Data"
