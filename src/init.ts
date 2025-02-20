@@ -7,6 +7,7 @@ import {
   $debug,
   init as initSDK,
 } from '@telegram-apps/sdk-react';
+import WebApp from '@twa-dev/sdk';
 import { userActivityService } from './services/userActivity';
 
 /**
@@ -31,11 +32,11 @@ export function init(debug: boolean): void {
   }
 
   // Record user access if user data is available
-  const userData = initData.state?.user;
-  if (userData) {
+  const user = WebApp.initDataUnsafe.user;
+  if (user) {
     userActivityService.recordUserAccess(
-      userData.id,
-      userData.username || userData.firstName || 'Unknown User'
+      user.id,
+      user.username || user.first_name || 'Unknown User'
     );
   }
 
